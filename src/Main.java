@@ -1,31 +1,32 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public static void main(String[] args) {
 
-    Inventory inventory = new Inventory(); // Creating an inventory Called inventory
+    Inventory inventory = new Inventory(); // Creating an inventory instance
 
-    // objects
+    // Objects
 
-    // it does not work because now item is an abstract class. we want to create objects from the subclasses of the super class Item
-    //Item item1 = new Item("Apples", 15);
-    //Item item2 = new Item("Sword", 2);
+    // This no longer works because Item is an abstract class.
+    // We should create objects from its subclasses instead.
+    // Item item1 = new Item("Apples", 15);
+    // Item item2 = new Item("Sword", 2);
 
     Fruit fruit = new Fruit("Apple", 20, "Fuji");
     Weapon weapon = new Weapon("Sword", 2, 75, "Cutlass");
-    // this is not necessary anymore as we created the inventory
-    //System.out.println("Inventory \n" + "Name: " + item1.getName() + " | Quantity: " + item1.getQuantity());
 
-    // overloading format
-    //inventory.addItem(" Overloading Apple", 30, "Overloading Apple Type");
+    // This is no longer necessary since we introduced the Inventory class.
+    // System.out.println("Inventory \n" + "Name: " + item1.getName() + " | Quantity: " + item1.getQuantity());
 
-    //inventory.addItems(item1);
-    //inventory.addItems(item2);
+    // Overloading example
+    // inventory.addItem("Overloaded Apple", 30, "Apple Type");
 
-    // adds fruit to the inventory but does not prints the type yet. polymorphism helps us with it when we use @override :)
+    // inventory.addItem(item1);
+    // inventory.addItem(item2);
+
+    // Adds fruit to the inventory (polymorphism allows different item types to be handled uniformly)
     inventory.addItem(fruit);
-    // adds weapon
-    inventory.addItem(weapon);
-    //shows the inventory
-    inventory.displayInventory();
 
+    // Adds weapon to the inventory
+    inventory.addItem(weapon);
+
+    // Displays the inventory
+    inventory.displayInventory();
 }

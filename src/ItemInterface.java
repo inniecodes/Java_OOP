@@ -1,9 +1,8 @@
 public interface ItemInterface {
 
-    // common methods that all items must implement
-    // methods from item
+    // Common methods that all items must implement
+    // Methods from Item
     String getName();
     int getQuantity();
     void displayInfo();
-
 }

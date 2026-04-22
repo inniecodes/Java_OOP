@@ -1,52 +1,52 @@
 import java.util.ArrayList;
 
-// an inventary is a collection of items, therefore, i can use an  ArrayList in order to work with a collection of objects
+// An inventory is a collection of items, so we can use an ArrayList to store and manage a group of objects
 public class Inventory {
-   //private ArrayList<Item> items; // an array list will reCieve Item and it will store a list of itens
-    private ArrayList<ItemInterface> items; // creating an interface here
 
-    // inventory ConstruCtor
+    // private ArrayList<Item> items; // ArrayList that stores Item objects
+    private ArrayList<ItemInterface> items; // using interface instead of concrete class
 
+    // Inventory constructor
     public Inventory() {
         items = new ArrayList<>();
     }
 
-    // method to add items to the ArrayList, the paramter of this is the ArrayList, in order to use the method add, we must add the parameter Item (Class)
-    // add items to the CLASS ITEM, using the arrylist items
-
-    public void addItem(ItemInterface item){
+    // Method to add items to the ArrayList.
+    // The parameter is of type ItemInterface, allowing flexibility for different implementations.
+    public void addItem(ItemInterface item) {
         items.add(item);
     }
 
+    // OVERLOADING AND OVERRIDING
 
-    // OVERLOADING AND OVERRIDE
+    // Overloading example
+    /*
+    Easier to read and improves compile-time safety because errors are caught earlier.
+    It also increases flexibility.
 
-    // overloading
-    /* easier to read, compiled time is better because the errors are going to be called out in compie time, it increases flexibility.
-    public void addItem(String name, int quantity, String type){
+    public void addItem(String name, int quantity, String type) {
         items.add(new Fruit(name, quantity, type));
     }
 
-    //overloading using the Weapon class
-    public void addItem(String name, int quantity, int damage, String type){
+    // Overloading using the Weapon class
+    public void addItem(String name, int quantity, int damage, String type) {
         items.add(new Weapon(name, quantity, damage, type));
-    }*/
-
-
-    // displaying the inventory
-    public void displayInventory(){
-        for (ItemInterface item : items){
-
-            //System.out.println("Item: " + item.getName() + ", Quantity: " + item.getQuantity());
-
-            // As we are using  @override we are going to use the method toString()
-            // toString() is a built in method in java. it returns the representation of the object. it is recommended to override this method in the subclasses
-
-            //System.out.println(item.toString());
-
-            item.displayInfo(); // now we can use the displayInfo() abstrat method here
-            }
     }
+    */
 
+    // Displaying the inventory
+    public void displayInventory() {
+        for (ItemInterface item : items) {
 
+            // System.out.println("Item: " + item.getName() + ", Quantity: " + item.getQuantity());
+
+            // Since we are using @Override, we can call displayInfo() directly
+            // toString() is a built-in Java method that returns a string representation of an object.
+            // It is recommended to override it in subclasses for better readability.
+
+            // System.out.println(item.toString());
+
+            item.displayInfo(); // calling the abstract/interface method implementation
+        }
+    }
 }
